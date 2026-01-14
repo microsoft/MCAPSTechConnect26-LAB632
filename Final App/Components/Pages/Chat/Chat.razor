@@ -1,0 +1,181 @@
+@using Microsoft.Agents.Core.Models
+@page "/"
+@attribute [Authorize]
+@inject IChatClient ChatClient
+@inject CopilotStudioIChatClient CopilotStudioClient
+@inject NavigationManager Nav
+@implements IDisposable
+
+<PageTitle>Chat</PageTitle>
+
+<ChatHeader OnNewChat="@ResetConversationAsync" />
+
+<div class="chat-messages-container">
+    <ChatMessageList Messages="@messages"
+                     InProgressMessage="@currentResponseMessage"
+                     IsWaiting="@isWaitingForResponse"
+                     OnAdaptiveCardInvokeAction="@OnAdaptiveCardInvokeAction">
+        <NoMessagesContent>
+            <div>M365 Agent SDK based custom UI for Copilot Studio Chat</div>
+        </NoMessagesContent>
+    </ChatMessageList>
+</div>
+
+<div class="chat-input-container">
+    <ChatInput OnSend="@AddUserMessageAsync" @ref="@chatInput" />
+</div>
+
+@code {
+    private readonly ChatOptions chatOptions = new();
+    private readonly List<ChatMessage> messages = new();
+    private CancellationTokenSource? currentResponseCancellation;
+    private ChatMessage? currentResponseMessage;
+    private ChatInput? chatInput;
+    private bool isWaitingForResponse = false;
+
+    private async Task AddUserMessageAsync(ChatMessage userMessage)
+    {
+        CancelAnyCurrentResponse();
+        messages.Add(userMessage);
+        await chatInput!.FocusAsync();
+
+        // Create cancellation token FIRST
+        currentResponseCancellation = new CancellationTokenSource();
+
+        var streamingUpdates = ChatClient.GetStreamingResponseAsync(
+            [.. messages],
+            chatOptions,
+            currentResponseCancellation.Token
+        );
+
+        await ProcessStreamingResponseAsync(streamingUpdates);
+    }
+
+    /// <summary>
+    /// Common method to process streaming responses
+    /// </summary>
+    private async Task ProcessStreamingResponseAsync(IAsyncEnumerable<ChatResponseUpdate> updates)
+    {
+        // Setup response state
+        isWaitingForResponse = true;
+        var responseText = new TextContent("");
+        var responseContents = new List<AIContent> { responseText };
+        currentResponseMessage = new ChatMessage(ChatRole.Assistant, responseContents);
+
+        StateHasChanged();
+
+        try
+        {
+            await foreach (var update in updates)
+            {
+                // Process each streaming update
+                ProcessUpdateContents(update, responseText, responseContents);
+
+                // Notify the ChatMessageItem to re-render
+                ChatMessageItem.NotifyChanged(currentResponseMessage);
+                StateHasChanged();
+
+                // Allow UI to update between chunks
+                await Task.Yield();
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Expected when user sends a new message while streaming
+        }
+        catch (Exception ex)
+        {
+            responseText.Text = $"Error: {ex.Message}";
+        }
+        finally
+        {
+            isWaitingForResponse = false;
+        }
+
+        // Cleanup: remove informative messages from final response
+        responseContents.RemoveAll(c => c is FunctionCallContent { CallId: "InformativeMessage" });
+
+        // Store the completed message
+        messages.Add(currentResponseMessage!);
+        currentResponseMessage = null;
+    }
+
+    private async Task OnAdaptiveCardInvokeAction(Activity invokeActivity)
+    {
+        CancelAnyCurrentResponse();
+
+        // Create cancellation token FIRST
+        currentResponseCancellation = new CancellationTokenSource();
+
+        var streamingUpdates = CopilotStudioClient.SendAdaptiveCardResponseAsync(
+            invokeActivity,
+            currentResponseCancellation.Token
+        );
+
+        await ProcessStreamingResponseAsync(streamingUpdates);
+    }
+
+    /// <summary>
+    /// Process different content types from streaming updates
+    /// TODO: Extend this to handle FunctionCallContent for adaptive cards
+    /// </summary>
+    private void ProcessUpdateContents(
+    ChatResponseUpdate update,
+    TextContent responseText,
+    List<AIContent> responseContents)
+    {
+        foreach (var content in update.Contents)
+        {
+            switch (content)
+            {
+                case TextContent { Text: { Length: > 0 } text }:
+                    isWaitingForResponse = false;
+                    responseText.Text = text;
+                    break;
+
+                case FunctionCallContent { CallId: "InformativeMessage" } infoContent:
+                    responseContents.Add(infoContent);
+                    break;
+
+                // NEW: Handle Adaptive Cards
+                case FunctionCallContent { CallId: "RenderAdaptiveCardAsync" } cardContent:
+                    // Add card as a separate message immediately
+                    messages.Add(new ChatMessage(ChatRole.Assistant, [cardContent]));
+                    break;
+            }
+        }
+    }
+
+    private void CancelAnyCurrentResponse()
+    {
+        // Cancel the token first to stop the streaming
+        currentResponseCancellation?.Cancel();
+        currentResponseCancellation = null;
+
+        // Only add the message if it has actual content worth keeping
+        if (currentResponseMessage is not null)
+        {
+            var hasContent = currentResponseMessage.Contents
+                .OfType<TextContent>()
+                .Any(t => !string.IsNullOrWhiteSpace(t.Text));
+
+            if (hasContent)
+            {
+                messages.Add(currentResponseMessage);
+            }
+        }
+
+        currentResponseMessage = null;
+        isWaitingForResponse = false;
+    }
+
+    private async Task ResetConversationAsync()
+    {
+        CancelAnyCurrentResponse();
+        messages.Clear();
+        await chatInput!.FocusAsync();
+    }
+
+    public void Dispose()
+        => currentResponseCancellation?.Cancel();
+}

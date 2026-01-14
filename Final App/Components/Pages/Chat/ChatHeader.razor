@@ -1,0 +1,32 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+
+<div class="chat-header-container">
+    <div class="chat-header-inner">
+        <div class="chat-header-left">
+            <!-- Microsoft Logo -->
+            <svg class="microsoft-logo" width="24" height="24" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="11" height="11" fill="#F25022" />
+                <rect x="12" y="0" width="11" height="11" fill="#7FBA00" />
+                <rect x="0" y="12" width="11" height="11" fill="#00A4EF" />
+                <rect x="12" y="12" width="11" height="11" fill="#FFB900" />
+            </svg>
+            <div class="chat-header-title-container">
+                <h1 class="chat-header-title">Microsoft Tech Connect FY26</h1>
+            </div>
+        </div>
+        <div class="chat-header-controls">
+            <button class="new-chat-btn" @onclick="@OnNewChat" title="Start a new conversation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="new-chat-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span>New Conversation</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback OnNewChat { get; set; }
+}

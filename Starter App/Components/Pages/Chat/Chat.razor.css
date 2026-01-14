@@ -1,0 +1,36 @@
+/* Container for messages section - positioned between fixed header and input */
+.chat-messages-container {
+    position: fixed;
+    top: 60px; /* Below the fixed header */
+    left: 0;
+    right: 0;
+    bottom: 140px; /* Above the fixed input */
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Container for input - fixed at the very bottom of viewport */
+.chat-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, #f5f5f5 80%, transparent 100%);
+    z-index: 50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .chat-messages-container {
+        top: 56px; /* Slightly smaller header on mobile */
+        bottom: 120px;
+    }
+
+    .chat-input-container {
+        padding: 0.75rem 1rem 1rem 1rem;
+    }
+}

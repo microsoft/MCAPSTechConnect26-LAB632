@@ -1,19 +1,5 @@
 ## LAB 632: Embedding Copilot: AI Chat and Power Apps Integrations Made Easy
 
-## Welcome to Your Lab Environment
-
-To begin, log into the virtual machine using the following credentials: +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ . You may need to enter it twice, as it might not work on the first attempt.🙂
-
-To access Azure resources and the Power Platform Maker portal, navigate to the Resources section in the Instructions area.
-
-![h0ub4dx2.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975h0ub4dx2.jpg)
-
-**Note:** Text formatted as an +++example+++ represents type text. Clicking on this text will automatically insert it to prevent any typing errors.
-
-Let's start the journey! 🙂
-
----
-
 ## Lab Introduction
 
 In this hands-on lab, you will learn how to embed and extend **Copilot Studio agents** across **both pro-code and low-code application scenarios**, using the **Microsoft 365 Agents SDK** and **Power Platform** capabilities. While Copilot Studio provides a powerful low-code experience for building AI agents, real-world enterprise solutions often require a combination of **custom development** and **low-code extensibility**. This lab is designed to address both.
@@ -123,19 +109,19 @@ Once the virtual machine is available, navigate to the **CopilotStudioClient** f
 
 You can find the project inside the **CopilotStudioClient** folder.
 
-![muok45qs.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975muok45qs.jpg)
+![muok45qs.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/muok45qs.jpg)
 
 Open the **CopilotStudioClient** folder and run the TechConnectCopilotStudio solution. 
 
-![kxgr2w04.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975kxgr2w04.jpg)
+![kxgr2w04.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/kxgr2w04.jpg)
 
 Once the solution is loaded, rebuild it first, and then run it to verify that the echo service is working correctly.
 
-![za5qg5r3.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975za5qg5r3.jpg)
+![za5qg5r3.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/za5qg5r3.jpg)
 
 Here is what you should see after the app starts. Try typing a message and verify that the echo bot is working correctly.
 
-![7rzewxcq.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319757rzewxcq.jpg)
+![7rzewxcq.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/7rzewxcq.jpg)
 
 Before we continue, let's quickly review the project structure and setup. 
 
@@ -298,7 +284,7 @@ You can review the code, try to debug it, and then move on to the next section t
 #### Validate whether the Dataverse development environment already exists.
 
 > **Note:** Before executing the steps below, please review the list of environments. Go to +++https://make.powerapps.com+++ (Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP)) and check whether there are environments other than **Default**. If there is only the Default environment, then **skip** the optional section.
-> ![ukbyqm1e.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975ukbyqm1e.jpg)
+> ![ukbyqm1e.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/ukbyqm1e.jpg)
 > If multiple environments are present, and to avoid unintentionally overriding existing changes, it is recommended to create a new Dataverse environment using the manual steps described below.
 >
 
@@ -306,22 +292,22 @@ You can review the code, try to debug it, and then move on to the next section t
 
 * Go To [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/home). Type: +++https://admin.powerplatform.microsoft.com/home+++
 * Go To *Manage* -> *Environments* -> *Click on New to create an environment*
-![90.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197590.png)
+![90.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/90.png)
 
 * Give the Environment Name, Select Type as "Developer" & Click on *Next*. 
-![91.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197591.png)
+![91.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/91.png)
 
 * Click on Save. 
-![92.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197593.png)
+![92.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/93.png)
 
 * Wait for the environment status to be "Ready".
-![94.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197594.png)
+![94.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/94.png)
 
 * Once the above step is done. Go To maker portal [Maker Portal](https://make.powerapps.com). +++https://make.powerapps.com+++ Select the created environment.
-![95.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197595.png)
+![95.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/95.png)
 
 * Proceed with all lab exercises using this newly created environment. Go to Agents and create a new blank agent. Make sure that your newly created environment is selected.
-![96.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197596.png)
+![96.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/96.png)
 
 > [!alert] End of the optional section.
 
@@ -334,36 +320,36 @@ Let's create a Copilot Studio agent that we will be using as a backend for our c
 1. Go to [Copilot Studio Portal](https://copilotstudio.microsoft.com/) `https://copilotstudio.microsoft.com/`  and create a new agent **(Start from Blank)**. Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP).
 
 2. You will see something like below. It should provision a development environment for you. This process can take some time.
-![qfo6f4zd.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975qfo6f4zd.jpg)
+![qfo6f4zd.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/qfo6f4zd.jpg)
 
 3. Once the environment is provisioned. Go to Agents and create a new one. Click on *"Create blank agent"*
-![n1wye4dg.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975n1wye4dg.jpg)
-![zpy223im.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975zpy223im.jpg)
+![n1wye4dg.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/n1wye4dg.jpg)
+![zpy223im.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/zpy223im.jpg)
 If what you see on the screen is different from the screenshot and you do not see the "*Create blank agent*" button, try opening `https://copilotstudio.microsoft.com/` again. This should take you to the correct page.
 
 4. Please wait untill your agent is ready. Make sure you are in the correct environment. **Not Default one.** 
-![xp5faek8.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975xp5faek8.jpg)
+![xp5faek8.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/xp5faek8.jpg)
 Click **Edit** to rename the agent. 
 
 5. You can call it with your user name like **User1-58101761**. Click Save. 
-![4mu8rslx.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754mu8rslx.jpg)
+![4mu8rslx.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4mu8rslx.jpg)
 
 
 6. Provide instructions and click *Save*.** Instructions:** +++You are a friendly assistant that can help access and manipulate data within a Dataverse environment.+++.  Validate that agent name is correct one more time. If it is not correct, please fix the name. **Enable web search.** You might need to click twice to enable it.🙂 Don't forget to **save** the agent. 
-![tflvgjvv.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975tflvgjvv.jpg)
+![tflvgjvv.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/tflvgjvv.jpg)
 
 8. Make sure that your agent is using Authenticate with Microsoft authentication. You can verify this by going to *Settings → Security → Authentication*.
-![cq8d0x39.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975cq8d0x39.jpg)
+![cq8d0x39.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/cq8d0x39.jpg)
 
 9. **Publish your agent. **
 
 10. Test your agent by asking some simple question. For example: "What can you do?"
-![gavgeoiu.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975gavgeoiu.jpg)
+![gavgeoiu.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/gavgeoiu.jpg)
 
 
 Now we have a fully functional Copilot Studio agent and a connected Dataverse organization. We will use this agent as the backend and connect to via the M365 Agent SDK. The Dataverse organization should be visible in your Maker Portal, but it might take a bit of time 🙂. You can open maker portal and verify this `https://make.powerapps.com/` . Please be aware that this can take some time to be provisioned, so please continue with the lab. You can validate this later. 
 
-![uslpmfem.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975uslpmfem.jpg)
+![uslpmfem.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/uslpmfem.jpg)
 
 ---
 
@@ -383,19 +369,19 @@ Once configured, your application will be able to authenticate users against you
 1. First step is to create an app registration. Please open `https://portal.azure.com/`. Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP).
 
 2. Type `App registrations` in the search box and open *"App registrations"* area from the Services section. 
-![hs3hl65w.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975hs3hl65w.jpg)
+![hs3hl65w.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/hs3hl65w.jpg)
 
 3. Create a new App registration
-![6kumkc4h.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319756kumkc4h.jpg)
+![6kumkc4h.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/6kumkc4h.jpg)
 
 4. Enter appication registration name. You can use m365-copilotclient-{YOUR_USERNAME}
-![krxgqyvw.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975krxgqyvw.jpg)
+![krxgqyvw.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/krxgqyvw.jpg)
 
 5. Click Register to create the new app registration. Once app is created you should the screen below:
-![jb2x0yeo.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975jb2x0yeo.jpg)
+![jb2x0yeo.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/jb2x0yeo.jpg)
 
 6. Let's first add api permissions. Expand "*Manage*" section and Click "*API permissions*". You will be navigated to the "API permissions" section. 
-![rno3vm78.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975rno3vm78.jpg)
+![rno3vm78.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/rno3vm78.jpg)
 
 Your application requires the following permissions to authenticate users and communicate with Copilot Studio:
 
@@ -408,37 +394,37 @@ Your application requires the following permissions to authenticate users and co
 All permissions are **delegated** and do not require admin consent, meaning users can consent to these permissions themselves when signing in for the first time.
 
 7. Click on "*Add Permission*", then switch to "*APIs my organization uses*". Try to search "Power Platform API". `Power Platform API`
-![1o1hj43w.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319751o1hj43w.jpg)
+![1o1hj43w.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/1o1hj43w.jpg)
 
 8. Once you find the Power Platform API, select it, choose Delegated permissions, and then add the `CopilotStudio.Copilots.Invoke` permission to your app.
-![c7y1k867.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975c7y1k867.jpg)
+![c7y1k867.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/c7y1k867.jpg)
 
 11. The next step is to validate that our setup is correct. Navigate back to the "API permissions" section and verify that **CopilotStudio.Copilots.Invoke** is now listed among your API permissions.
- ![0n9ck3l9.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319750n9ck3l9.jpg)
+ ![0n9ck3l9.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/0n9ck3l9.jpg)
 
 12. Now that both permissions (**User.Read** and **CopilotStudio.Copilots.Invoke**) are in place, complete the setup by adding the **offline_access** permission.
 
 13. Click "Add a permission" and select "Microsoft Graph."
-![mod95a9o.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975mod95a9o.jpg)
-![5r6rfhgk.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319755r6rfhgk.jpg)
+![mod95a9o.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/mod95a9o.jpg)
+![5r6rfhgk.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/5r6rfhgk.jpg)
 
 14. Select "Delegated permissions," then find and select "offline_access.". Click "Add permissions". 
-![vdlzrm78.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975vdlzrm78.jpg)
+![vdlzrm78.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/vdlzrm78.jpg)
 
 15. Now we have all needed permissions
-![35rnlg2c.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197535rnlg2c.jpg)
+![35rnlg2c.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/35rnlg2c.jpg)
 
 16. The next step is to configure the app registration authentication settings. Go to the "Authentication (Preview)" section and click "Add a platform" to add a redirect URI.
-![j06hkbf6.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975j06hkbf6.jpg)
+![j06hkbf6.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/j06hkbf6.jpg)
 
 17. Select **Web** 
-![0np1xf4p.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319750np1xf4p.jpg)
+![0np1xf4p.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/0np1xf4p.jpg)
 
 17. Since we will test and host the application locally, you need to add a redirect URI that is generated when the application starts. You may need to start the Visual Studio application again to determine the correct URL.
-![mplxbxax.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975mplxbxax.jpg)
+![mplxbxax.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/mplxbxax.jpg)
 
 18. Next step is to configure the setup as shown in the screen below. See the explanation section for more details. 
-![7ijicmvp.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319757ijicmvp.jpg)
+![7ijicmvp.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/7ijicmvp.jpg)
 
 **Authentication Configuration explanation**
 
@@ -492,11 +478,11 @@ Browser → Azure AD → Browser → Your App → Azure AD Token Endpoint
 
 
 19. Verify your setup. Check both sections "Redirect URI configuration" and "Settings"
-![8f93krdz.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319758f93krdz.jpg)
-![egmnmog9.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975egmnmog9.jpg)
+![8f93krdz.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/8f93krdz.jpg)
+![egmnmog9.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/egmnmog9.jpg)
 
 20. The final step is to create a client secret. Go to the "Client secrets" section and create a new secret.
-![0yqg6m8a.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319750yqg6m8a.jpg)
+![0yqg6m8a.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/0yqg6m8a.jpg)
 
 21. Once the secret is generated, store it somewhere, as you will need it for further configuration.
 
@@ -543,11 +529,11 @@ Once complete, users will be required to sign in with their organizational accou
 }
 ```
 2. Let's identify all the required parameters. We'll start with the Copilot Studio configuration. Go back to the agent you created in Copilot Studio in Section 2 of this lab. Open *Settings*, navigate to the *Advanced section*, and then click *Metadata*.
-![f1ts51b5.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975f1ts51b5.jpg)
-![38yzrpze.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197538yzrpze.jpg)
+![f1ts51b5.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/f1ts51b5.jpg)
+![38yzrpze.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/38yzrpze.jpg)
 
 3. The rest you can take from the application registration that we've created in section 3.
-![0b38ools.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319750b38ools.jpg)
+![0b38ools.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/0b38ools.jpg)
 
 4. Use the secret you saved after it was created. If you've lost the previous one, you can always generate a new secret. In the end, your *appsettings.json* should look like the example below.
 ```json
@@ -577,10 +563,10 @@ Once complete, users will be required to sign in with their organizational accou
 
 5. Now we're ready to start updating the code. Create an Authentication folder under Services.
 * 
-![qo5xzr2r.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975qo5xzr2r.jpg)
+![qo5xzr2r.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/qo5xzr2r.jpg)
 
 6. Add new C# file in that folder called `CopilotStudioConnectionSettings.cs` Open context menu and click "Add" -> "New Item"
-![110of6je.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975110of6je.jpg)
+![110of6je.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/110of6je.jpg)
 
 7. Update the file with the code below 
 ```
@@ -615,7 +601,7 @@ This class extends the ConnectionSettings base class from the Microsoft Copilot 
 The base ConnectionSettings class (from the SDK) handles Copilot Studio-specific settings like AgentId and EnvironmentId. By extending it, we add the Azure AD properties needed for authentication while keeping all connection settings in a single object that can be passed to the CopilotClient.
 
 8. Now let's add authentication to our project. Please extend Program.cs
-![d8l7ld4r.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975d8l7ld4r.jpg)
+![d8l7ld4r.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/d8l7ld4r.jpg)
 
 9. Past below code after **builder.Services.AddRazorComponents().AddInteractiveServerComponents();**
 
@@ -888,7 +874,7 @@ public record CopilotScope(string Value);
 ```
 
 12. Now let's add an authorization marker to our main chat window so that authorizatoin is enforced every time a user attempts to open the chat window.
-![tsitww36.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975tsitww36.jpg)
+![tsitww36.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/tsitww36.jpg)
 You only need to add ```@attribute [Authorize]``` to Chat.razor, as shown below.
 You can find *Chat.razor* by expanding the *Components* folder, then *Pages*, and opening *Chat* folder.
 Alternatively, you can use the code snippet below to completely replace the header section of Chat.razor.
@@ -903,8 +889,8 @@ Alternatively, you can use the code snippet below to completely replace the head
 ```
 
 13. Now, when you run the application again, you should see the authentication window. Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP). Review the permissions required and click "Accept". 
-![brpugw31.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975brpugw31.jpg)
-![4x89n7dm.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754x89n7dm.jpg)
+![brpugw31.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/brpugw31.jpg)
+![4x89n7dm.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4x89n7dm.jpg)
 
 ---
 
@@ -922,7 +908,7 @@ The Microsoft 365 Agents SDK handles the complexities of:
 
 Please create a new file under the **Authentication** folder named **`AuthTokenHandler.cs`**.
 
-![ivn4y7cz.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975ivn4y7cz.jpg)
+![ivn4y7cz.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/ivn4y7cz.jpg)
 
 2. Update the code 
 ```
@@ -1202,7 +1188,7 @@ Please replace the whole method with the following implementaiton. Here is how w
 Please fully override your current **StreamResponseAsync** with the above implementation. 
 You may also need to add a new namespace *"Microsoft.Agents.Core.Models"*. Add the following using statement to the top of the CopilotStudioIChatClient.cs file: +++using Microsoft.Agents.Core.Models+++
 
-![4dg2u9hi.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754dg2u9hi.jpg)
+![4dg2u9hi.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4dg2u9hi.jpg)
 
 The `activityToSend` parameter is the **input** going TO the Copilot. Using `Activity` there allows you to send:
 
@@ -1387,16 +1373,16 @@ public record CopilotScope(string Value);
 
 
 9. Try to run the application. In case you have below error, then you need to validate that your **appsettings.json** is correct
-![sxgyty16.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975sxgyty16.jpg)
+![sxgyty16.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/sxgyty16.jpg)
 
 10. You might still encounter issues with authentication tokens or expired session errors. If this happens, please clear your browser cache and try again. 
-![4wrn5wf2.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754wrn5wf2.jpg)
+![4wrn5wf2.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4wrn5wf2.jpg)
 Click on Clear bowsing data.
-![o9aksxty.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975o9aksxty.jpg)
+![o9aksxty.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/o9aksxty.jpg)
 Clear the cache.
 
 11. Reload the page and login again.  Now you should have a proper connection with Copilot Studio. Chat with the bot. 
-![d7uycq9o.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975d7uycq9o.jpg)
+![d7uycq9o.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/d7uycq9o.jpg)
 
 ---
 ## 6. Implement markdown rendering and streaming responses
@@ -1763,7 +1749,7 @@ else if (Message.Role == ChatRole.Assistant)
 **Important:** The `(MarkupString)` cast tells Blazor to render the string as HTML rather than escaping it.
 
 4. Run your application and check that streaming and rendering works as expected. 
-![uh71p1t0.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975uh71p1t0.jpg)
+![uh71p1t0.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/uh71p1t0.jpg)
 
 #### Implementing Status Notifications
 Let's display real-time status updates showing what Copilot Studio is doing (e.g., "Searching for information...", "Dynamic Plan Received"). This includes both informative stream messages and event activities from the execution chain.
@@ -2083,34 +2069,34 @@ When matched, we add `infoContent` to the `responseContents` list. This list is 
 **Data flow:** Message.Contents → pattern match FunctionCallContent → extract message text → render HTML with loading indicator
 
 7. Test the functionality. You should be able to see additional details about the Copilot Studio execution pipeline.
-![2825gjch.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319752825gjch.jpg)
+![2825gjch.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/2825gjch.jpg)
 
 ## 7. Add a Dataverse MCP server and Adaptive Cards with custom input parameters
 In this section, you will attach an MCP server to your agent and create a simple Adaptive Card with custom input parameters. After that, you will extend your Blazor web app to add support for Adaptive Card functionality and handle the submitted inputs as part of the interaction flow.
 
 #### Add Dataverse MCP server to our agent
 1. Go to Copilot Studio Portal +++https://copilotstudio.microsoft.com/+++ and open our existing agent. Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP). You can find it if you check "Recent agents" area.
-![1aeborzu.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319751aeborzu.jpg)
+![1aeborzu.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/1aeborzu.jpg)
 2. Go to *"Tools"* section
-![xzk9hyvb.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975xzk9hyvb.jpg)
+![xzk9hyvb.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/xzk9hyvb.jpg)
 3. Click *"Add a tool"*
-![6558lvo5.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319756558lvo5.jpg)
+![6558lvo5.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/6558lvo5.jpg)
 4. Switch to *"Model Context Protocol"*
-![4tevz806.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754tevz806.jpg)
+![4tevz806.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4tevz806.jpg)
 5. Find Dataverse MCP Server and click on it
-![vusod44b.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975vusod44b.jpg)
+![vusod44b.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/vusod44b.jpg)
 6. Click on *"Not connected"* and then click on *Create new connection*
-![9gabvrhw.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319759gabvrhw.jpg)
+![9gabvrhw.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/9gabvrhw.jpg)
 7. Choose Authentication type as *"Oauth"* and click *"Create"*
-![wvnt2t3d.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975wvnt2t3d.jpg)
+![wvnt2t3d.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/wvnt2t3d.jpg)
 8. Use the credentials from the Resources tab. Sign in using the Temporary Access Password (TAP). You can find it if you check "Recent agents" area.
-![b7alz1d1.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975b7alz1d1.jpg)
+![b7alz1d1.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/b7alz1d1.jpg)
 9. Click on *"Add and configure"*
-![0nheva7h.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319750nheva7h.jpg)
+![0nheva7h.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/0nheva7h.jpg)
 10. Now you have Dataverse MCP added to your agent. 
-![l7v6l2pr.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975l7v6l2pr.jpg)
+![l7v6l2pr.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/l7v6l2pr.jpg)
 11. Try to ask the question like *"How many contacts are there in Dataverse?" *
-![q2oz3twm.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975q2oz3twm.jpg)
+![q2oz3twm.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/q2oz3twm.jpg)
 As you can see, the agent requires your consent to access the Dataverse service. This consent request is displayed as an adaptive card. If your client does not support adaptive cards, you will not be able to use MCP servers.
 12. Publish your agent. 
 
@@ -2122,15 +2108,15 @@ In this part, we will create a simple Adaptive Card that can be used to create a
 
 Create a Topic that collects Contact First Name & Last Name via an Adaptive Card in Copilot Studio.
 1. Click on the Topic -> Add a topic -> From blank.
-![1_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319751_1.png)
+![1_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/1_1.png)
 2. Give the name of the Topic as "Create Contact" & edit Describe what the topic does as "Create Contact".
-![2_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319752_1.png)
+![2_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/2_1.png)
 3. Click on + icon to add an An adpative card. Select "Ask with adaptive card".
-![3_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319753_1.png)
+![3_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/3_1.png)
 4. Click on the Adpative card -> Edit adpative card.
-![4_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754_1.png)
+![4_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4_1.png)
 5. Replace the Adaptive card json on Card payload editor. Once added click on Save & Close.
-![5_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319755_1.png)
+![5_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/5_1.png)
 
 ```
 {
@@ -2165,41 +2151,41 @@ Create a Topic that collects Contact First Name & Last Name via an Adaptive Card
 
 ```
 7. Click on Edit schema & Remove actionSubmitId as we do not need this output for our processing.
-![6_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319756_1.png)
-![7_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319757_1.png)
+![6_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/6_1.png)
+![7_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/7_1.png)
 8. The final card will be as shown on below image. Click on save to Save the topic.
-![8_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319758_1.png)
-![10_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197510_1.png)
+![8_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/8_1.png)
+![10_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/10_1.png)
 9. Next step to add an Action to create an Agent flow. Click on + icon -> Add a tool -> New Agent flow
-![9_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319759_1.png)
-![11_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197511_1.png)
+![9_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/9_1.png)
+![11_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/11_1.png)
 10. It will open the flow designer. Click on When an agent calls the flow Add 2 text inputs as "First Name" & "Last Name".
-![12_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197512_1.png)
-![13_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197513_1.png)
-![14_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197514_1.png)
-![15_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197515_1.png)
+![12_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/12_1.png)
+![13_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/13_1.png)
+![14_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/14_1.png)
+![15_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/15_1.png)
 11. Add a new step for Add a new row (for MS dataverse)
-![16_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197516_1.png)
-![17_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197517_1.png)
+![16_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/16_1.png)
+![17_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/17_1.png)
 12. Select Table name as "Contacts". Provide Last Name & First Name from added inputs from previous step
-![18_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197518_1.png)
-![19_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197519_1.png)
-![20_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197520_1.png)
-![21_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197521_1.png)
-![22_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197522_1.png)
+![18_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/18_1.png)
+![19_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/19_1.png)
+![20_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/20_1.png)
+![21_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/21_1.png)
+![22_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/22_1.png)
 13. Click on Respond to the Agent -> Add an output (text output as "Success Value" & description as "Record created successfully".
-![23_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197523_1.png)
-![24_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197524_1.png)
-![25_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197525_1.png)
+![23_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/23_1.png)
+![24_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/24_1.png)
+![25_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/25_1.png)
 14. Click on Publish & Go back to your agent.
-![26_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197526_1.png)
+![26_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/26_1.png)
 15. Select the input variable as shown below to pass the input to the Agent flow.
-![27_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197527_1.png)
+![27_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/27_1.png)
 16. Add a Message on next step & select the ouput from flow step and save the topic.
-![28_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197528_1.png)
-![29_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197529_1.png)
+![28_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/28_1.png)
+![29_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/29_1.png)
 17. You can quickly test your created topic from Test. 
-![30_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197530_1.png)
+![30_1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/30_1.png)
 18. Once you will configure the below "Adaptive Card support to our Blazor web app", you can now test the same from Blazor web app. 
 19. Don't forget to publish your agent. 
 
@@ -4018,7 +4004,7 @@ At this point, we have all the required components to properly render Adaptive C
 You can also interact with the Dataverse MCP server and ask questions such as: **"How many accounts are available in my Dataverse environment?"**
 
 
-![vb4vldzp.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975vb4vldzp.jpg)
+![vb4vldzp.jpg](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/vb4vldzp.jpg)
 
 * Since you have created an Adaptive Card topic for your agent in Copilot Studio, let's test it by providing a prompt.
     * Prompt: Create Contact 
@@ -4676,52 +4662,52 @@ Therefore, you will create a new agent using canvas app copilot control.
 
 1. Go to [Maker Portal](https://make.powerapps.com/) & Click on the already created environment from above steps
  
-![1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319751.png)
+![1.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/1.png)
 
 2. Click on Apps -> Start with a page design.
 
-![2.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319752.png)
+![2.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/2.png)
 
 3. Click on Blank canvas. 
 
-![3.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319753.png)
+![3.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/3.png)
 
 4. Once Aop has been loaded. Click on Skip. 
 
-![4.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319754.png)
+![4.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/4.png)
 
 6. Click on Insert & Add Copilot (Preview) Control 
 
-![5.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319755.png)
+![5.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/5.png)
 
 8. When prompted to add a data source to Copilot, select a Dataverse table as the data source.
 
 Notes : The Copilot control only supports Dataverse tables for the data source.
 
-![6.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319756.png)
+![6.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/6.png)
 
 9. Drag Copilot control to middle and click on Save.
 
-![7.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319757.png)
+![7.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/7.png)
 
 10. Provide a name for your canvas app (Such as : **Copilot Agent Canvas App** ) & then Save: 
 
-![8.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319758.png)
+![8.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/8.png)
 
 11. Now customize your above created copilot app using Copilot Studio.
 Customize your newly connected copilot in Power Apps through the properties menu.
 With the Copilot control on your canvas selected, select Edit next to the Customize copilot field in Properties.
 
-![9.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions3319759.png)
+![9.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/9.png)
 
 12. Click on Create new copilot. 
 Note: The Copilot control in Power Apps Studio doesn't support enabling an existing Copilot from Copilot Studio.
 
-![10.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197510.png)
+![10.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/10.png)
 
 13. Click on Edit in Copilot Studio. It will open in a new tab. Any changes you make in Copilot Studio appear in your connected copilot in your canvas app.
 
-![11.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197511.png)
+![11.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/11.png)
 
 14. Next step to Create 2 Topic to test our created Canvas App.
 
@@ -4731,40 +4717,40 @@ Note: The Copilot control in Power Apps Studio doesn't support enabling an exist
 15. Steps to Create WhoAMI Topic
     * Go to Topic. Click on Add a topic -> From Blank
 
-    ![13.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197513.png)
+    ![13.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/13.png)
 
     * Give the topic name as Who AM I. On the Trigger Click on Edit. Add a Phrase as "Who AM I" & Click on "+"
 
-    ![14.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197514.png)
+    ![14.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/14.png)
 
     * Add a new step as "Send a message"
     
-    ![15.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197515.png)
+    ![15.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/15.png)
 
     * Type in the box as "You are" & Click on {x} to add variable.
 
-    ![16.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197516.png)
+    ![16.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/16.png)
 
     * Under System Search for User.DisplayName. Select it and Save the topic. 
     
-    ![17.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197517.png)
+    ![17.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/17.png)
 
 16. Steps to Create Adpative card "Seattle Weather Info".
     * Go To Topic. Click on Add a topic -> From Blank
 
-	 ![13.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197513.png)
+	 ![13.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/13.png)
 	
     * Give the topic name as Seattle Weather Info. Edit Phrase as "Seattle Weather Info".
     
-    ![18.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197518.png)
+    ![18.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/18.png)
 
     * Add a new step as "Send a message". Click on Add to add Adaptive Card. 
 
-	![26.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197526.png)
+	![26.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/26.png)
 
     * Edit Adaptive card. & Paste the below Adpataive card json. Click on Save & Close Adaptive card window. Save the Topic. 
   
-  	![20.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197520.png)
+  	![20.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/20.png)
     
     ```
 	{
@@ -4816,22 +4802,22 @@ Note: The Copilot control in Power Apps Studio doesn't support enabling an exist
 
 17. Click on Publish to publish the Agent.
 
-![21.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197521.png)
+![21.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/21.png)
 
 18. Go back to your canvas app window. Click on Publish to publish your canvas app. 
 
-![22.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197522.png)
+![22.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/22.png)
 
 19. Play your created Canvas app from Apps section. 
 
-![23.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197523.png)
+![23.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/23.png)
 
 20. Test your app by providing the input as shown on the below images. 
 Note: The first response may take some time. Please wait while the agent processes your request.
 
-![24.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197524.png)
+![24.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/24.png)
 
-![25.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions33197525.png)
+![25.png](https://labondemand.blob.core.windows.net/content/lab205805/instructions331975/25.png)
 
     
     

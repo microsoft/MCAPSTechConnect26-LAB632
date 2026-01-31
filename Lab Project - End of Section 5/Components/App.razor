@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["webchatclient.styles.css"]" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+
+    <ImportMap />
+    <HeadOutlet @rendermode="@renderMode" />
+</head>
+
+<body>
+<Routes @rendermode="@renderMode" />
+</body>
+
+</html>
+
+@code {
+    private readonly IComponentRenderMode renderMode = new InteractiveServerRenderMode(prerender: false);
+}
